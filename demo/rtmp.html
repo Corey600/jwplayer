@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>rtmp demo</title>
+    <style type="text/css">
+        .play-area {
+            height: 270px;
+            width: 480px;
+            position: relative;
+            margin: auto;
+        }
+        #player {
+            margin: auto;
+        }
+        .text-area {
+            display: block;
+            width: 640px;
+            margin: auto;
+        }
+		#url {
+            width: 476px;
+        }
+    </style>
+
+    <script type="text/JavaScript" src="./jquery-1.9.1.js"></script>
+    <script type="text/JavaScript" src="./jwplayer.js"></script>
+</head>
+<body>
+
+<div class="play-area">
+    <div id='player'>Loading the player ...</div>
+</div>
+
+<label class="text-area">
+    <span>RTMP地址：</span><input type="text" id="url" />&nbsp;<input type="button" id="btn" value="加载" />
+</label>
+
+<!--<script type='text/javascript'>jwplayer.key = "3PZQ7I4zW/K/kjUYAOgfiNdtrJp1+nVz7N84hA==";</script>-->
+<script type='text/javascript'>
+    $('#btn').on('click', function(e){
+        var $url = $('#url');
+
+        var defaut = (!!$url.val() && $url.val()!='') ? $url.val() : "http://oss.aliyuncs.com/alitest/transcode/778f6f7fe99d4c948e2953c049b19c45/3883e86b2f6d45899cd2fea3b26e8722.flv?Expires=1441615811&OSSAccessKeyId=Ff0SvI5QrrBGyufL&Signature=6LQjPZsCIGSFT68ud3ba8j0mREc%3D";
+
+        console.log('[url]:'+defaut);
+
+        var playerInstance = jwplayer('player');
+        playerInstance.setup({
+            aspectratio: "16:9",
+            autostart: false,
+            controls: true,
+            displaydescription: "false",
+            displaytitle: true,
+            flashplayer: "../bin/jwplayer.mine.swf",
+            height: "100%",
+            //mute: false,
+            //ph: 1,
+            //plugins: {"./ping.js": {"pixel": "http://content.jwplatform.com/ping.gif"}},
+            primary: "falsh",
+            repeat: false,
+            //skin: {"name": "glow"},
+            //stagevideo: false,
+            stretching: "uniform",
+            width: "100%",
+//            rtmp: {
+//                bufferlength: 3
+//            },
+
+//file: 'rtmp://example.com/application/mp4:myVideo.mp4'
+//file: 'rtmp://10.1.17.190/oflaDemo/469947890_1_1_1_1'
+//file: "http://oss.aliyuncs.com/alitest/transcode/493c7c65b2b6432d9d467bfb37d026c5/37673f02ff98440ca3385c71c9ca7250.flv?Expires=1441180489&OSSAccessKeyId=Ff0SvI5QrrBGyufL&Signature=%2BVJfIs%2BMqPLd%2FnLqS40VaaWK5oU%3D"
+//file: "http://oss.aliyuncs.com/alitest/transcode/493c7c65b2b6432d9d467bfb37d026c5/37673f02ff98440ca3385c71c9ca7250.flv?Expires=1441180489&OSSAccessKeyId=Ff0SvI5QrrBGyufL&Signature=%2BVJfIs%2BMqPLd%2FnLqS40VaaWK5oU%3D"
+//file: 'rtmp://live.netitv.com/live/meilimusic'
+//file: 'rtmp://10.19.137.103:1935/live/hik9610/12.12.12.12/789/aaat/0/MAIN/TCP'
+//file: 'rtmp://10.80.21.18/oflaDemo/463022212_1_2_1_0'
+//file : "http://hzhls01.ys7.com:7886/hcnp/518363144_1_1_1_0_183.136.184.7_6500.m3u8?2ce17080-d771-484e-8ef1-5cf584dfe2a6" // hls
+//file: 'http://vodreplay.ys7.com/replay/175f44ab-23fc-48fa-9fb9-85420d97b5b5.m3u8?p=public__072674cbe3a5349e4fcc9a82848179b85c7d'
+//file: "http://oss.aliyuncs.com/alitest/transcode/778f6f7fe99d4c948e2953c049b19c45/3883e86b2f6d45899cd2fea3b26e8722.flv?Expires=1441615811&OSSAccessKeyId=Ff0SvI5QrrBGyufL&Signature=6LQjPZsCIGSFT68ud3ba8j0mREc%3D"
+            file: defaut
+
+        });
+
+        playerInstance.on('play',function(event){
+            console.log('[play]'+JSON.stringify(event));
+        });
+
+        playerInstance.on('pause',function(event){
+            console.log('[pause]'+JSON.stringify(event));
+        });
+
+        playerInstance.on('displayClick',function(event){
+            console.log('[displayClick]'+JSON.stringify(event));
+        });
+
+        playerInstance.on('buffer',function(event){
+            console.log('[buffer]'+JSON.stringify(event));
+        });
+
+        playerInstance.on('meta',function(event){
+            console.log('[meta]'+JSON.stringify(event.metadata));
+        });
+
+        playerInstance.on('meta',function(event){
+            console.log('[meta]'+JSON.stringify(event.metadata));
+        });
+
+        playerInstance.on('error',function(event){
+            console.log('[error]'+JSON.stringify(event.metadata));
+        });
+
+    });
+
+
+
+</script>
+
+</body>
+</html>

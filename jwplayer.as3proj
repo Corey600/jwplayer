@@ -4,7 +4,7 @@
   <output>
     <movie outputType="Application" />
     <movie input="" />
-    <movie path="bin-release" />
+    <movie path="bin\jwplayer.mine.swf" />
     <movie fps="30" />
     <movie width="800" />
     <movie height="600" />
@@ -15,7 +15,7 @@
   </output>
   <!-- Other classes to be compiled into your SWF -->
   <classpaths>
-    <class path="src/flash" />
+    <class path="src\flash" />
   </classpaths>
   <!-- Build options -->
   <build>
@@ -42,7 +42,7 @@
     <option linkReport="" />
     <option loadExterns="" />
     <option staticLinkRSL="True" />
-    <option additional="" />
+    <option additional="-define+=CONFIG::debugging,true&#xA;-define+=JWPLAYER::version,'my-version'" />
     <option compilerConstants="" />
     <option minorVersion="" />
   </build>

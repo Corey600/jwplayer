@@ -9,3 +9,4 @@ bin-release
 built
 bower_components
 reports
+obj

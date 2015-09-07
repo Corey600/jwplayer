@@ -190,7 +190,7 @@ define([
 
             if (playlist.length === 0) {
                 this.mediaController.trigger(events.JWPLAYER_ERROR, {
-                    message: 'Error loading playlist: No playable sources found'
+                    message: '[a] Error loading playlist: No playable sources found'
                 });
                 return;
             }

@@ -134,7 +134,7 @@ define([
         if (evt && evt.message) {
             error(resolve, 'Error loading playlist', evt.message);
         } else {
-            error(resolve, 'Error loading player', 'No playable sources found');
+            error(resolve, '[b] Error loading player', 'No playable sources found');
         }
     }
 

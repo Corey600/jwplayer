@@ -35,6 +35,7 @@ define([
 
 
     playerUtils.loadFrom = function () {
+        console.log('[INFO]'+__DEBUG__);
         return (__DEBUG__ ? parser.getScriptPath('jwplayer.js') : playerUtils.repo());
     };
 

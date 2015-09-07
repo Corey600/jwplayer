@@ -69,8 +69,8 @@ defaut = "http://wowza.jwplayer.com:1935/live/jelly.stream/playlist.m3u8";
 
         var playerInstance = jwplayer('player');
         playerInstance.setup({
-            flashplayer: "../bin/jwplayer.mine.swf",
-            primary: "falsh",
+            flashplayer: "../bin-debug/jwplayer.flash.swf",
+            primary: "flash",
             height: "100%",
             width: "100%",
             aspectratio: "16:9",
@@ -84,6 +84,8 @@ defaut = "http://wowza.jwplayer.com:1935/live/jelly.stream/playlist.m3u8";
             mute: false, // 静音
             file: defaut
         });
+
+        console.log('[INFO]' + playerInstance.version);
 
         playerInstance.on('play',function(event){
             console.log('[play]'+JSON.stringify(event));

@@ -27,7 +27,7 @@
         }
     </style>
     <script type="text/JavaScript" src="./jquery-1.9.1.js"></script>
-    <script type="text/JavaScript" src="./jwplayer.js"></script>
+    <script type="text/JavaScript" src="../bin-release/jwplayer.js"></script>
 </head>
 <body>
 
@@ -61,6 +61,7 @@
 //defaut = "http://hzhls01.ys7.com:7886/hcnp/518363144_1_1_1_0_183.136.184.7_6500.m3u8?2ce17080-d771-484e-8ef1-5cf584dfe2a6" // hls
 //defaut = 'http://vodreplay.ys7.com/replay/175f44ab-23fc-48fa-9fb9-85420d97b5b5.m3u8?p=public__072674cbe3a5349e4fcc9a82848179b85c7d'
 //defaut = "http://oss.aliyuncs.com/alitest/transcode/778f6f7fe99d4c948e2953c049b19c45/3883e86b2f6d45899cd2fea3b26e8722.flv?Expires=1441615811&OSSAccessKeyId=Ff0SvI5QrrBGyufL&Signature=6LQjPZsCIGSFT68ud3ba8j0mREc%3D"
+//defaut = "http://wowza.jwplayer.com:1935/live/jelly.stream/playlist.m3u8";
 
         var $url = $('#url');
         defaut = (!!$url.val() && $url.val()!='') ? $url.val() : defaut;
@@ -77,18 +78,11 @@
             autostart: false,
             repeat: false,
             controls: true,
-            displaydescription: "false",
+            displaydescription: false,
             displaytitle: true,
-
-//            mute: false,
-//            ph: 1,
-//            plugins: {"./ping.js": {"pixel": "http://content.jwplatform.com/ping.gif"}},
-//            skin: {"name": "glow"},
-//            stagevideo: false,
-//            rtmp: {
-//                bufferlength: 3
-//            },
-
+            androidhls: true,
+            mute: false, // 静音
+            skin: {"name": "glow"},
             file: defaut
         });
 
